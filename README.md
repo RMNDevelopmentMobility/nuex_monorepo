@@ -38,15 +38,16 @@ Padrão arquitetural baseado em **Clean Architecture**.
 	
 	
 ## Project Architecture
-O padrão arquitetural adotado neste projeto é o **MVC (Model-View-Controller)**. 
+O padrão arquitetural adotado neste projeto é o **Clean Architecture**. 
 
 A estruturação de pastas e subpastas (detalhadas mais abaixo) do código fonte está amplamente baseada no padrão arquitetural referido.
-
+<div class="center">
 <p align="center">
-  <a href="https://github.com/grupofleury/flutter-first-poc">
-    <img src="https://github.com/RMNDevelopmentMobility/fliper_test_rmn/blob/main/assets/Flutter_POC_MVC.png" height="250" width="600" alt="Flutter_POC_MVC" />
+  <a href="https://gitlab.com/grupofleury/mobile/recepcao-flutter">
+    <img src="/assets/readme_images/Flutter_Clean_Arch.png" height="250" width="500" alt="Flutter_Clean_Arch" />
   </a>
 </p>
+</div>
 
 
 ## State Management and Reactivity

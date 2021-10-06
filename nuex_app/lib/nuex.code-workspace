@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../dependency_module"
+		},
+		{
+			"path": "../../design_system_module"
+		},
+		{
+			"path": "../../core_module"
+		},
+		{
+			"path": "../../feeds_module"
+		}
+	],
+	"settings": {}
+}

@@ -16,8 +16,8 @@
 
 Screenshot | Description
 -----------|-------------
-<img src="https://github.com/RMNDevelopmentMobility/nuex_monorepo/blob/main/nuex_app/assets/readme_images/Test_Architecture.png" alt="Screenshot_01" width="200"/> | IMAGEM 1: Teste: Arquitetura. 
-<img src="https://github.com/RMNDevelopmentMobility/nuex_monorepo/blob/main/nuex_app/assets/readme_images/Test_Pair_Programming.png" alt="Screenshot_02" width="200"/> | IMAGEM 2: Teste: Pair Programming.
+<img src="https://github.com/RMNDevelopmentMobility/nuex_monorepo/blob/main/nuex_app/assets/readme_images/Test_Architecture.png" alt="Screenshot_01" width="400"/> | IMAGEM 1: Teste: Arquitetura. 
+<img src="https://github.com/RMNDevelopmentMobility/nuex_monorepo/blob/main/nuex_app/assets/readme_images/Test_Pair_Programming.png" alt="Screenshot_02" width="400"/> | IMAGEM 2: Teste: Pair Programming.
 
 ## Overview
 Projeto Flutter criado como um Monorepo.

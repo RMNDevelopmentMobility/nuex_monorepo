@@ -101,6 +101,7 @@ Aqui está a estrutura de pasta principal que este projeto flutter fornece.
 
 	flutter-first-poc/
 	|- .dart_tool
+	|- .idea
 	|- android
 	|- assets
 	|- build
@@ -109,60 +110,105 @@ Aqui está a estrutura de pasta principal que este projeto flutter fornece.
 	|- test
 	|- web
 	
-Aqui está a estrutura de pastas que foi utilizada neste projeto
+Aqui está a estrutura de pastas que usamos neste projeto
 
 	lib/
 	|- app/
 	   |- modules/
-	   |- shared/
-	      |- colors/
-	      |- constants/
-	      |- http/
-	      |- theme/
-	      |- utils/
 	   |- app_module.dart
 	   |- app_widget.dart
-	|- generated_plugin_registrant.dart
 	|- main.dart
 
 Agora, vamos mergulhar na pasta lib/app que contém o código principal do aplicativo.
-	
-	1- modules - Contém separadamente os módulos que compõem o aplicativo. Base do Flutter Modular utilizado neste projeto. 
-	2- shared — Contém as subpastas que são compartilhadas por todo o projeto. Possui os utilitários / funções comuns do aplicativo
-	3- app_module.dart — Este arquivo contém todas as rotas para os módulos do aplicativo. Responsável também pela injeção de dependências das classes store.
-	4- app_widget.dart — Contém as configurações de nível de aplicativo, ou seja, tema, título, orientação, etc.
-	5- main.dart - Este é o ponto de partida do aplicativo. Inicializa as classes do Hive, configura o Loading para todo o aplicativo e inicializa o módulo principal da estrutura Modular - AppModule().
+
+	1- modules/ 
+		Contém separadamente os módulos que compõem o aplicativo. 
+		Base do Flutter Modular utilizado neste projeto.
+
+	2- app_module.dart 
+		Este arquivo contém todas as rotas para os módulos do aplicativo. 
+		Responsável também pela injeção de dependências das classes controller.
+
+	3- app_widget.dart
+		Contém as configurações de nível de aplicativo, ou seja, tema, título, orientação, etc.
+
+	4- main.dart
+		Este é o ponto de partida do aplicativo. Inicializa as classes do Hive, configura o Loading 
+		para todo o aplicativo e inicializa o módulo principal da estrutura Modular - AppModule().
 
 **_modules_**
 
 Por utilizar o Flutter Modular este diretório é um dos mais importantes do projeto, contendo todos os módulos que compôem o aplicativo. 
-Cada módulo pode conter a seguinte estrutura de pastas/arquivos baseada na **arquitetura MVC** (dependendo da complexidade do mesmo), conforme mostrado no exemplo abaixo: 
+<div class="center">
+<p align="center">
+  <a href="https://gitlab.com/grupofleury/mobile/recepcao-flutter">
+    <img src="/assets/readme_images/camadas_clean.png" height="353" width="278" alt="camadas_clean" />
+  </a>
+</div>
+
+Cada módulo pode conter a seguinte estrutura de pastas/arquivos baseada na **Clean Architecture** (dependendo da complexidade do mesmo), conforme mostrado no exemplo abaixo: 
 
 	modules/
-	   |- wealthsummary/
-	      |- controllers/
-	         |- errors/
-		    |- wealthsummary_failure.dart
-		 |- repositories/
-		    |- wealthsummary_repository.dart
-		    |- i_wealthsummary_repository.dart
-	         |- wealthsummary_store.dart
-	      |- models/
-	      |- views/
-	         |- cards/
-		 |- wealthsummary_page.dart
-	      |- wealthsummary_module.dart
+		|- search/
+	    	|- data/
+	        	|- datasource/
+	        		|- search_datasource.dart
+		    	|- models/
+	        		|- result_search_model.dart
+		    	|- repositories/
+	        		|- search_repository_impl.dart
+		 	|- domain/
+		    	|- entities/
+	        		|- result_search.dart
+		    	|- errors/
+	        		|- search_errors.dart
+		    	|- repositories/
+	        		|- search_repository.dart
+		    	|- usecases/
+	        		|- search_by_text.dart
+	      	|- external/
+		    	|- datasource/
+	        		|- github_datasource.dart
+	      	|- presenter/
+	        	|- search/
+	        	|- states/
+	        		|- states.dart
+	     		|- search_bloc.dart
+	     		|- search_page.dart
+	     	|- search_module.dart
 	      
+Explicando melhor a estrutura que cada módulo pode conter, não seguindo a ordem alfabética e sim a aordem de importância dentro do **Clean Architecture**, temos abaixo.
 
-Explicando melhor a estrutura que cada módulo pode conter, temos abaixo.
+	1- domain/ — A camada de Domain hospedará as Regras de Negócio Corporativa(Entity) e da Aplicação(Usecase). A camada Domain 
+	deve ser responsável apenas pela execução da lógica de negócio, não deve haver implementações de outros objetos como Repositories 
+	ou Services dentro do "domain".
+	   1.1- entities/ - As entidades devem ser objetos simples. A Entidade não deve usar nenhum objeto das outras camadas.
+	   1.2- errors/ - As classes de erros podem ser utilizadas para a customização e retenção para maior flexibilidade dos erros 
+	   da aplicação.
+	   1.3- repositories/ — Apesar do nome, nesta pasta teremos apenas o contrato de interfaces(Abstrações) e a responsabilidade de
+	   implementação desse objeto deverá ser repassado a outra camada mais baixa.
+	   1.4- usecases/ — Os Casos de Uso devem executar a lógica necessária para resolver o problema. Se o Caso de Uso precisar de algum
+	   acesso externo então esse acesso deve ser feito por meio de contratos de interface que serão implementados em uma camada de mais
+	   baixo nível.
 
-	1- controllers — Contém as classes de stores e as subpastas da camada Controler da arquiteruta MV[C].
-	   1.1- errors - Contém as classes de erros para tratamento das exceptions da comunicação com as APIs que o módulo consome.
-	   1.2- repositories — Contém as classes de interface/comunicação com as APIs que o módulo consome.
-	   1.3- nomemodulo_store.dart — Contém a classe store do módulo que utiliza as funções das classes da pasta repositories.
-	2- models - Contém os modelos de dados do módulo, camada Model da arquiteruta [M]VC.
-	3- views - Contém toda a UI do módulo, podendo conter subpastas como: cards, tabs, tiles, etc. Camada Model da arquiteruta M[V]C.
-	4- nomemodulo_module.dart — Este arquivo contém todas as rotas internas do módulos. Responsável também pela injeção de dependências da classe store.
+	2- data/ - Esta camada dá suporte a camada Domain implementando suas interfaces. Para isso, adapta os dados externos para que possa
+	cumprir os contratos do domínio. Nessa camada iremos implementar alguma interface de um Repository ou Services que pode ou não 
+	depender de dados externos como uma API ou acesso a algum Hardware como por exemplo Bluetooth.
+	   2.1- datasources/ - As classes aqui serão utilizadas para quando quisermos acessar um dado externo. Serão classes apenas de
+	   interface, visando passar a responsabilidade de implementação para a camada mais baixa da nossa arquitetura. 
+	   2.2- models/ - As classes devem adaptar os dados externos para que possa cumprir os contratos do domínio, podendo conter regras 
+	   de validação dos seus dados por meio de funções ou ValueObjects.
+	   2.3- repositories/ — Nestas classes, de fato, iremos implementar as interfaces provenientes da camada "domain". 
+
+	3- external/ - Aqui fica a implementação dos acessos externos e que dependem de um hardware, API, packages ou acesso muito 
+	específico. Basicamente a camada External deve conter tudo aquilo que terá grandes chances de ser alterado sem que o programador 
+	possa intervir diretamente no projeto.
+	   3.1- datasources/ - As classes aqui devem se preocupar apenas em “descobrir” os dados externos e enviar para a camada de "data" 
+	   para serem tratados. 
+
+	4- presenter/ — A Camada Presenter fica responsável por declarar as entradas, saídas e interações da aplicação. Usando o Flutter 
+	como exemplo, hospedaremos os Widgets, Pages e também Alguma Gerência de Estado.
+	   4.1- states/ - As classes aqui contém os estados possíveis da gerência de estado, no caso deste exemplo, o Bloc. 
 	
 ### Libraries & Tools
 * [mocktail](https://github.com/felangel/mocktail)

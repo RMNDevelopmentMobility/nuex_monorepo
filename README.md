@@ -16,7 +16,7 @@
 
 Screenshot | Description
 -----------|-------------
-<img src="https://github.com/RMNDevelopmentMobility/fliper_test_rmn/blob/main/screenshots/Splashscreen.png" alt="Screenshot_01" width="200"/> | IMAGEM 1: SplashScreen. 
+<img src="https://github.com/RMNDevelopmentMobility/nuex_monorepo/tree/main/nuex_app/blob/main/assets/readme_images/Test_Architecture.png" alt="Screenshot_01" width="200"/> | IMAGEM 1: Teste Arquitetura. 
 <img src="https://github.com/RMNDevelopmentMobility/fliper_test_rmn/blob/main/screenshots/Simulator_ iPhone12_Pro_Max.png" alt="Screenshot_02" width="200"/> | IMAGEM 2: Simulator iOS.
 <img src="https://github.com/RMNDevelopmentMobility/fliper_test_rmn/blob/main/screenshots/Moto_X4_XT1900.png" alt="Screenshot_03" width="200"/> | IMAGEM 3: Moto X4 - Modelo: XT1900.
 

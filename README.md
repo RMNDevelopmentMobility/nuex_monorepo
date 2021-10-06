@@ -16,9 +16,8 @@
 
 Screenshot | Description
 -----------|-------------
-<img src="https://github.com/RMNDevelopmentMobility/nuex_monorepo/tree/main/nuex_app/blob/main/assets/readme_images/Test_Architecture.png" alt="Screenshot_01" width="200"/> | IMAGEM 1: Teste Arquitetura. 
-<img src="https://github.com/RMNDevelopmentMobility/fliper_test_rmn/blob/main/screenshots/Simulator_ iPhone12_Pro_Max.png" alt="Screenshot_02" width="200"/> | IMAGEM 2: Simulator iOS.
-<img src="https://github.com/RMNDevelopmentMobility/fliper_test_rmn/blob/main/screenshots/Moto_X4_XT1900.png" alt="Screenshot_03" width="200"/> | IMAGEM 3: Moto X4 - Modelo: XT1900.
+<img src="https://github.com/RMNDevelopmentMobility/nuex_monorepo/blob/main/nuex_app/assets/readme_images/Test_Architecture.png" alt="Screenshot_01" width="200"/> | IMAGEM 1: Teste: Arquitetura. 
+<img src="https://github.com/RMNDevelopmentMobility/nuex_monorepo/blob/main/nuex_app/assets/readme_images/Test_Pair_Programming.png" alt="Screenshot_02" width="200"/> | IMAGEM 2: Teste: Pair Programming.
 
 ## Overview
 Projeto Flutter criado como um Monorepo.
@@ -42,10 +41,8 @@ O padrão arquitetural adotado neste projeto é o **Clean Architecture**.
 
 A estruturação de pastas e subpastas (detalhadas mais abaixo) do código fonte está amplamente baseada no padrão arquitetural referido.
 <div class="center">
-<p align="center">
-  <a href="https://gitlab.com/grupofleury/mobile/recepcao-flutter">
-    <img src="/assets/readme_images/Flutter_Clean_Arch.png" height="250" width="500" alt="Flutter_Clean_Arch" />
-  </a>
+<p align="center">	
+    <img src="https://github.com/RMNDevelopmentMobility/nuex_monorepo/blob/main/nuex_app/assets/readme_images/Flutter_Clean_Arch.png" height="250" width="500" alt="Flutter_Clean_Arch" />
 </p>
 </div>
 
@@ -62,7 +59,6 @@ Passos necessário para preparar o ambiente antes de rodar este projeto:
 -   Instalar o **Git** (https://git-scm.com/downloads)
 -   Instalar o **Flutter** (https://flutter.dev/docs/get-started/install)
 -   Instalar o **Dart SDK** (https://dart.dev/get-dart)
--   Ative a CLI Slidy (https://github.com/Flutterando/slidy)
 -   Obter alguma IDE para o desenvolvimento. Ex.: Visual Studio Code
 	- Plugins específicos podem auxiliar no desenvolvimento, abaixo segue a lista com alguns deles para o VSCode:
 		- Flutter (dart-code.flutter)
@@ -142,9 +138,7 @@ Agora, vamos mergulhar na pasta lib/app que contém o código principal do aplic
 Por utilizar o Flutter Modular este diretório é um dos mais importantes do projeto, contendo todos os módulos que compôem o aplicativo. 
 <div class="center">
 <p align="center">
-  <a href="https://gitlab.com/grupofleury/mobile/recepcao-flutter">
-    <img src="/assets/readme_images/camadas_clean.png" height="353" width="278" alt="camadas_clean" />
-  </a>
+	<img src="https://github.com/RMNDevelopmentMobility/nuex_monorepo/blob/main/nuex_app/assets/readme_images/camadas_clean.png" height="353" width="278" alt="camadas_clean" />
 </div>
 
 Cada módulo pode conter a seguinte estrutura de pastas/arquivos baseada na **Clean Architecture** (dependendo da complexidade do mesmo), conforme mostrado no exemplo abaixo: 

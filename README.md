@@ -152,7 +152,7 @@ Cada módulo pode conter a seguinte estrutura de pastas/arquivos baseada na **Cl
 	        		|- result_search_model.dart
 		    	|- repositories/
 	        		|- search_repository_impl.dart
-		 	|- domain/
+		 |- domain/
 		    	|- entities/
 	        		|- result_search.dart
 		    	|- errors/
